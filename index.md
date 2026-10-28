@@ -10,7 +10,7 @@ What Myrrah holds about you, where it is kept, and how to take it back.
 | | |
 |---|---|
 | Who runs Myrrah | The two people who build it. There is no company behind it yet. |
-| What identifies you | A phone number, which nobody else ever sees |
+| What identifies you | An email address, or an Apple or Google sign-in, which nobody else sees |
 | What others see | Your first name, your photo, your score |
 | How to get a copy | Profile → Your data → Export my data |
 | How to erase it | Profile → Your data → Delete my account |
@@ -38,11 +38,21 @@ ones you received.
 
 ## What is collected
 
-**A phone number.** It is how an account is verified and how one person is kept
-to one account. It is never shown to another user, never used as a public
-identifier, and never appears in a web address. It is held by the
-authentication service and is not copied into the part of the database the app
-reads from.
+**An email address.** It is how you sign in: a six digit code is sent to it, or
+Apple or Google confirms it for you. It is never shown to another user, never
+used as a public identifier, and never appears in a web address. It is held by
+the authentication service and is not copied into the part of the database the
+app reads from. With Apple you can choose to share a private relay address
+instead of your own.
+
+If you sign in with Google, Google also sends your name and a link to your
+Google profile picture, and the authentication service keeps what it sends with
+your account. With Apple, the first name you give Apple is kept the same way.
+Myrrah uses either only to suggest your first name when you set up your
+profile; what you type there is what other people see.
+
+If you sign in but never finish setting up your profile, the account and its
+address are deleted after 24 hours.
 
 **A first name and, optionally, a photo.** Both are shown to people you meet.
 The photo is stored in a private bucket: it is not reachable by guessing a URL,
@@ -70,7 +80,7 @@ No contacts. No address book. No email. No GPS or background location. No
 advertising identifiers. No third-party analytics or tracking SDKs. Myrrah does
 not sell data, does not share it with advertisers, and has no advertisers.
 
-Application logs deliberately contain no names, phone numbers, photo paths or
+Application logs deliberately contain no names, email addresses, photo paths or
 coordinates.
 
 ## Where it is kept
@@ -84,7 +94,7 @@ data.
 
 | Data | Who sees it |
 |---|---|
-| Your phone number | Nobody but you. Not other users, not us in normal use |
+| Your email address | Nobody but you. Not other users, not us in normal use |
 | Your name, photo, score | Signed-in Myrrah users |
 | A rating you were given | You, after a short delay, and in your export |
 | A rating you gave | You, and the person you gave it to |
@@ -115,8 +125,8 @@ people you rated have their scores recalculated without them.
 It is immediate and it cannot be undone. There is no grace period and no way to
 recover the account afterwards.
 
-Your phone number is released at the same time, so the number can be used to
-start a new account later.
+Your email address is released at the same time, so it can be used to start a
+new account later.
 
 > **Note.** One exception, stated plainly: if you have been suspended and have an open
 > appeal, deleting your account ends the appeal, because the record it would
@@ -124,14 +134,17 @@ start a new account later.
 
 ## Keeping you to one account
 
-A phone number can hold one Myrrah account at a time. This is the main thing
-stopping somebody building a crowd of accounts to move another person's score,
-and it is why the number is required.
+An email address, an Apple account or a Google account can hold one Myrrah
+account at a time. That is a weaker limit than it sounds: making several email
+addresses is easy. What protects a score today is that every rating needs a
+handshake in person, and that one person can rate another only once. If a
+stronger check is added, this section will say what it collects.
 
 ## Children
 
-Myrrah is for people aged 18 and over. The check happens when the account is
-created and is enforced by the database, not only by the app. We do not
+Myrrah is for people aged 18 and over. The check happens when you set up your
+profile, before it exists, and is enforced by the database, not only by the
+app. An account that fails it is deleted at once. We do not
 knowingly hold data about anyone younger; if you believe we do, contact us and
 it will be deleted.
 
