@@ -3,7 +3,7 @@
 What Myrrah holds about you, where it is kept, and how to take it back.
 
 > How to read this: the table answers most of it. The sections below say the
-> same things with the reasoning attached. Last updated 2026-10-28.
+> same things with the reasoning attached. Last updated 2026-10-30.
 
 ## At a glance
 
@@ -85,10 +85,22 @@ coordinates.
 
 ## Where it is kept
 
-On Supabase infrastructure (Postgres, with authentication and file storage).
-Access is controlled per row in the database rather than by the app choosing
-what to ask for, so a bug in the app cannot hand somebody another person's
-data.
+On Supabase infrastructure in Frankfurt (Postgres, with authentication and file
+storage). Access is controlled per row in the database rather than by the app
+choosing what to ask for, so a bug in the app cannot hand somebody another
+person's data.
+
+### Who else handles it
+
+Two other services take part in signing in, and each receives only what is
+listed here.
+
+- **Resend** sends the email with your sign-in code, through Amazon's mail
+  service in Ireland. It receives your email address and the code.
+- **Cloudflare Turnstile** runs the security check on the sign-in screen, which
+  stops scripts from requesting codes in bulk. It sees your phone's network
+  address and technical details of the browser view the check runs in. It does
+  not receive your email address.
 
 ## Who can see what
 
