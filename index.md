@@ -3,7 +3,7 @@
 What Myrrah holds about you, where it is kept, and how to take it back.
 
 > How to read this: the table answers most of it. The sections below say the
-> same things with the reasoning attached. Last updated 2026-10-30.
+> same things with the reasoning attached. Last updated 2026-10-31.
 
 ## At a glance
 
@@ -130,6 +130,10 @@ arrives through your phone's share sheet, so you choose where it goes.
 
 **Profile → Your data → Delete my account.**
 
+Without the app, email tarkan.suravwrk@gmail.com from the address you sign in
+with and ask for your Myrrah account to be deleted. It is deleted the same way,
+and you get a reply once it is gone.
+
 This removes your profile, your photo, your encounters, every rating you were
 given, and every rating you gave. Because the ratings you gave are removed, the
 people you rated have their scores recalculated without them.
@@ -168,5 +172,6 @@ and you will be asked again rather than silently moved onto new terms.
 
 ## Contact
 
-Through the repository or the address on the store listing. There is no support
-desk; there are two people.
+By email at tarkan.suravwrk@gmail.com, which is also the address on the store
+listing, or through the repository. There is no support desk; there are two
+people.
