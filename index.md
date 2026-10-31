@@ -11,7 +11,8 @@ What Myrrah holds about you, where it is kept, and how to take it back.
 |---|---|
 | Who runs Myrrah | The two people who build it. There is no company behind it yet. |
 | What identifies you | An email address, or an Apple or Google sign-in, which nobody else sees |
-| What others see | Your first name, your photo, your score |
+| What others see | Your first name, your photo if you add one, your score |
+| Your location | Asked once, only if you choose, to name your city. Never kept |
 | How to get a copy | Profile → Your data → Export my data |
 | How to erase it | Profile → Your data → Delete my account |
 
@@ -55,15 +56,43 @@ If you sign in but never finish setting up your profile, the account and its
 address are deleted after 24 hours.
 
 **A first name and, optionally, a photo.** Both are shown to people you meet.
-The photo is stored in a private bucket: it is not reachable by guessing a URL,
-and only signed-in users can load one.
+You can add, change or remove the photo in Profile, or skip it entirely.
+
+Your phone's own photo picker hands Myrrah the one photo you choose; the app
+never sees the rest of your library. Before that photo leaves your phone it is
+made smaller, at most 512 pixels on its longest side, and saved again as a new
+file, and everything a phone stores alongside a picture is removed: where it
+was taken, when, and on what camera.
+
+The photo is stored in a private bucket. It is not reachable by guessing a URL,
+only signed-in users can load it, and only while they can see your profile, so
+someone you have blocked, or who has blocked you, cannot. Changing your photo
+deletes the old one, and removing it deletes it.
 
 **Your year of birth.** Used once, to check you are 18 or over. The year is
 kept; your date of birth is never asked for.
 
-**Your city, if you give one.** Used to place you in a city-level comparison
-pool and nothing else. Myrrah does not collect your location, does not use GPS,
-and does not know where you are.
+**Your city and country, if you give them.** Used to place you in a
+city-level comparison pool and nothing else. They are optional: you are asked
+once when you set up your profile, and you can change or remove them at any
+time under Profile → Update my city.
+
+You can type your city, or press "Use my location". Only then does Myrrah ask
+your phone for its location, and only for an approximate one: on iPhone it asks
+for approximate location rather than precise, and on Android it cannot ask for
+precise location at all. The maps service built into your phone (Apple's on an
+iPhone, and on most Android phones Google's) turns that position into a city
+name and a country. You see the result and can correct it before anything is
+saved.
+
+Myrrah keeps the city name and the two-letter country code, and nothing else
+from this. The position itself is never stored, never sent to Myrrah and never
+written to a log. Myrrah does not track where you are, does not ask for your
+location in the background, and does not ask again unless you press the button
+again.
+
+Nobody else can see your city. No screen shows it to anyone else, and the
+database refuses it to every app but yours.
 
 **Ratings, and who you met.** For each encounter: the two people, when it
 happened, how it was started, and the star each person gave. There is no
@@ -76,8 +105,8 @@ reported.
 
 ## What is not collected
 
-No contacts. No address book. No email. No GPS or background location. No
-advertising identifiers. No third-party analytics or tracking SDKs. Myrrah does
+No contacts. No address book. No email. No precise location, no background
+location, and no record of where you have been. No advertising identifiers. No third-party analytics or tracking SDKs. Myrrah does
 not sell data, does not share it with advertisers, and has no advertisers.
 
 Application logs deliberately contain no names, email addresses, photo paths or
@@ -86,9 +115,9 @@ coordinates.
 ## Where it is kept
 
 On Supabase infrastructure in Frankfurt (Postgres, with authentication and file
-storage). Access is controlled per row in the database rather than by the app
-choosing what to ask for, so a bug in the app cannot hand somebody another
-person's data.
+storage). Access is controlled per row and per column in the database rather
+than by the app choosing what to ask for, so a bug in the app cannot hand
+somebody another person's data.
 
 ### Who else handles it
 
@@ -102,12 +131,36 @@ listed here.
   address and technical details of the browser view the check runs in. It does
   not receive your email address.
 
+One more takes part only if you press "Use my location":
+
+- **Your phone's maps service** (Apple on an iPhone, and on most Android phones
+  Google) receives your approximate position from your phone's operating system
+  and returns the name of the place. Myrrah does not send it anything; this
+  happens under Apple's or Google's own privacy terms.
+
+And one receives a report when the app crashes or hits an error:
+
+- **Sentry** receives crash and error reports, in its EU data region
+  (de.sentry.io, Frankfurt). A report holds the error, where in the code it
+  happened, the phone model and system version, the app version, and the
+  network calls made just before it, cut down to their shape: the address
+  without its search terms, the method and the result code. It is built to
+  hold none of your name, email address, photo, city, location, network
+  address or anything typed into the app; those are removed on your phone
+  before the report is sent. Reports from the iPhone and Android crash
+  handlers carry a random identifier for this installation of the app, which
+  is not linked to your account and changes if you reinstall. No screenshots,
+  no recordings of the screen, no usage tracking.
+
 ## Who can see what
 
 | Data | Who sees it |
 |---|---|
 | Your email address | Nobody but you. Not other users, not us in normal use |
 | Your name, photo, score | Signed-in Myrrah users |
+| Whether your account is suspended | Signed-in users' apps, which show it only as an absence. Never the reason |
+| Your year of birth and your consent record | You, in your export. Not other users |
+| Your city and country | You. Not other users, and no screen shows them to anyone else |
 | A rating you were given | You, after a short delay, and in your export |
 | A rating you gave | You, and the person you gave it to |
 | Who you met | You and the person you met |
@@ -137,6 +190,9 @@ and you get a reply once it is gone.
 This removes your profile, your photo, your encounters, every rating you were
 given, and every rating you gave. Because the ratings you gave are removed, the
 people you rated have their scores recalculated without them.
+
+Your photo is deleted first. If that fails, nothing else is deleted either, and
+you can try again.
 
 It is immediate and it cannot be undone. There is no grace period and no way to
 recover the account afterwards.
