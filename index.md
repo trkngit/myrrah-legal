@@ -3,7 +3,7 @@
 What Myrrah holds about you, where it is kept, and how to take it back.
 
 > How to read this: the table answers most of it. The sections below say the
-> same things with the reasoning attached. Last updated 2026-10-31.
+> same things with the reasoning attached. Last updated 2026-11-01.
 
 ## At a glance
 
@@ -13,6 +13,8 @@ What Myrrah holds about you, where it is kept, and how to take it back.
 | What identifies you | An email address, or an Apple or Google sign-in, which nobody else sees |
 | What others see | Your first name, your photo if you add one, your score |
 | Your location | Asked once, only if you choose, to name your city. Never kept |
+| Bluetooth | Only while the Nearby screen is open. Shows your first name and photo to Myrrah users close by |
+| Reminders | Off unless you turn them on. At most one per encounter, with no name or score in it |
 | How to get a copy | Profile → Your data → Export my data |
 | How to erase it | Profile → Your data → Delete my account |
 
@@ -103,10 +105,61 @@ named person is a harassment vector that two people cannot moderate.
 text in the product. It goes to the two of us and is never shown to the person
 reported.
 
+**A push token, if you turn on reminders.** Reminders are off until you turn
+them on under Profile → Reminders, and only then does your phone ask whether
+Myrrah may send notifications. Turning them on stores a push token with your
+account: the address Expo, Apple and Google use to deliver a notification to
+this phone, together with whether it is an iPhone or an Android phone.
+
+A reminder goes out at most once per encounter, when four of the twenty-four
+hours for rating are left and you have not rated the other person. It says that
+a rating is still open and carries a random reference to the encounter, so that
+tapping it opens the right screen. It holds no name, no score and no star; the
+app shows who it was once you open it.
+
+Turning reminders off deletes the token, and so does deleting your account.
+Signing out does not, so turn reminders off first if you are signing out of a
+phone somebody else will use.
+
+## Finding people nearby
+
+Nearby is the second way to start a handshake, next to showing a code. It uses
+Bluetooth, and only while the Nearby screen is open and on your screen. Leave
+the screen, lock the phone or switch apps, and it stops.
+
+While it is open, your phone sends out a short random code that changes about
+every 30 seconds and stops working once someone uses it. The code says nothing
+about you. A Myrrah user close enough to receive it can ask Myrrah whose code
+it is, and is shown your first name and your photo, if you have added one, and
+nothing else. People you have blocked, and people who have blocked you, are
+shown nothing.
+
+Myrrah does not record who appeared in your Nearby list, or whose list you
+appeared in. To stop anyone looking up codes in bulk, it counts how many codes
+your account looked up in the last hour. It keeps the count, not the codes, and
+deletes it after an hour.
+
+Someone nearby with a Bluetooth tool and no Myrrah account can tell that a
+phone close to them has Myrrah's Nearby screen open. They can see the random
+code, but they cannot turn it into a name.
+
+On an iPhone there is one more thing such a tool may be able to read while
+Nearby is open: the phone's own name, as set in Settings → General → About,
+which is often its owner's name. iOS decides that, and an app cannot turn it
+off. If your iPhone's name is your full name and that matters to you, change it
+there, or show a code instead of using Nearby.
+
+Myrrah does not use Bluetooth in the background and does not use it to work
+out where you are. On Android the permission is called Nearby devices, and
+Nearby needs Android 12 or later, because on earlier versions searching for
+nearby phones requires the location permission, which Myrrah does not ask for.
+On earlier Android versions Myrrah works without Nearby.
+
 ## What is not collected
 
 No contacts. No address book. No email. No precise location, no background
-location, and no record of where you have been. No advertising identifiers. No third-party analytics or tracking SDKs. Myrrah does
+location, and no record of where you have been. No Bluetooth outside the
+Nearby screen, and no record of who was near whom. No advertising identifiers. No third-party analytics or tracking SDKs. Myrrah does
 not sell data, does not share it with advertisers, and has no advertisers.
 
 Application logs deliberately contain no names, email addresses, photo paths or
@@ -152,15 +205,26 @@ And one receives a report when the app crashes or hits an error:
   is not linked to your account and changes if you reinstall. No screenshots,
   no recordings of the screen, no usage tracking.
 
+And one delivers reminders, only if you turn them on:
+
+- **Expo** (650 Industries, Inc.) runs the push service Myrrah sends reminders
+  through. It receives your phone's push token and the reminder itself, and
+  passes them to Apple's push service on an iPhone or Google's on Android,
+  which deliver it to your phone. Expo processes this in the United States and
+  states that it complies with the EU-U.S. Data Privacy Framework. It does not
+  receive your name, your email address or any rating.
+
 ## Who can see what
 
 | Data | Who sees it |
 |---|---|
 | Your email address | Nobody but you. Not other users, not us in normal use |
 | Your name, photo, score | Signed-in Myrrah users |
+| Your first name and photo, through Nearby | Signed-in Myrrah users within Bluetooth range, while your Nearby screen is open |
 | Whether your account is suspended | Signed-in users' apps, which show it only as an absence. Never the reason |
 | Your year of birth and your consent record | You, in your export. Not other users |
 | Your city and country | You. Not other users, and no screen shows them to anyone else |
+| Whether you turned on reminders | You. Not other users |
 | A rating you were given | You, after a short delay, and in your export |
 | A rating you gave | You, and the person you gave it to |
 | Who you met | You and the person you met |
@@ -187,9 +251,10 @@ Without the app, email tarkan.suravwrk@gmail.com from the address you sign in
 with and ask for your Myrrah account to be deleted. It is deleted the same way,
 and you get a reply once it is gone.
 
-This removes your profile, your photo, your encounters, every rating you were
-given, and every rating you gave. Because the ratings you gave are removed, the
-people you rated have their scores recalculated without them.
+This removes your profile, your photo, your encounters, your push token if you
+turned on reminders, every rating you were given, and every rating you gave.
+Because the ratings you gave are removed, the people you rated have their
+scores recalculated without them.
 
 Your photo is deleted first. If that fails, nothing else is deleted either, and
 you can try again.
