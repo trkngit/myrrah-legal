@@ -3,7 +3,7 @@
 What Myrrah holds about you, where it is kept, and how to take it back.
 
 > How to read this: the table answers most of it. The sections below say the
-> same things with the reasoning attached. Last updated 2026-10-31.
+> same things with the reasoning attached. Last updated 2026-11-01.
 
 ## At a glance
 
@@ -13,6 +13,7 @@ What Myrrah holds about you, where it is kept, and how to take it back.
 | What identifies you | An email address, or an Apple or Google sign-in, which nobody else sees |
 | What others see | Your first name, your photo if you add one, your score |
 | Your location | Asked once, only if you choose, to name your city. Never kept |
+| Bluetooth | Only while the Nearby screen is open. Shows your first name and photo to Myrrah users close by |
 | How to get a copy | Profile → Your data → Export my data |
 | How to erase it | Profile → Your data → Delete my account |
 
@@ -103,10 +104,45 @@ named person is a harassment vector that two people cannot moderate.
 text in the product. It goes to the two of us and is never shown to the person
 reported.
 
+## Finding people nearby
+
+Nearby is the second way to start a handshake, next to showing a code. It uses
+Bluetooth, and only while the Nearby screen is open and on your screen. Leave
+the screen, lock the phone or switch apps, and it stops.
+
+While it is open, your phone sends out a short random code that changes about
+every 30 seconds and stops working once someone uses it. The code says nothing
+about you. A Myrrah user close enough to receive it can ask Myrrah whose code
+it is, and is shown your first name and your photo, if you have added one, and
+nothing else. People you have blocked, and people who have blocked you, are
+shown nothing.
+
+Myrrah does not record who appeared in your Nearby list, or whose list you
+appeared in. To stop anyone looking up codes in bulk, it counts how many codes
+your account looked up in the last hour. It keeps the count, not the codes, and
+deletes it after an hour.
+
+Someone nearby with a Bluetooth tool and no Myrrah account can tell that a
+phone close to them has Myrrah's Nearby screen open. They can see the random
+code, but they cannot turn it into a name.
+
+On an iPhone there is one more thing such a tool may be able to read while
+Nearby is open: the phone's own name, as set in Settings → General → About,
+which is often its owner's name. iOS decides that, and an app cannot turn it
+off. If your iPhone's name is your full name and that matters to you, change it
+there, or show a code instead of using Nearby.
+
+Myrrah does not use Bluetooth in the background and does not use it to work
+out where you are. On Android the permission is called Nearby devices, and
+Nearby needs Android 12 or later, because on earlier versions searching for
+nearby phones requires the location permission, which Myrrah does not ask for.
+On earlier Android versions Myrrah works without Nearby.
+
 ## What is not collected
 
 No contacts. No address book. No email. No precise location, no background
-location, and no record of where you have been. No advertising identifiers. No third-party analytics or tracking SDKs. Myrrah does
+location, and no record of where you have been. No Bluetooth outside the
+Nearby screen, and no record of who was near whom. No advertising identifiers. No third-party analytics or tracking SDKs. Myrrah does
 not sell data, does not share it with advertisers, and has no advertisers.
 
 Application logs deliberately contain no names, email addresses, photo paths or
@@ -158,6 +194,7 @@ And one receives a report when the app crashes or hits an error:
 |---|---|
 | Your email address | Nobody but you. Not other users, not us in normal use |
 | Your name, photo, score | Signed-in Myrrah users |
+| Your first name and photo, through Nearby | Signed-in Myrrah users within Bluetooth range, while your Nearby screen is open |
 | Whether your account is suspended | Signed-in users' apps, which show it only as an absence. Never the reason |
 | Your year of birth and your consent record | You, in your export. Not other users |
 | Your city and country | You. Not other users, and no screen shows them to anyone else |
