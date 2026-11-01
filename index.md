@@ -118,8 +118,6 @@ tapping it opens the right screen. It holds no name, no score and no star; the
 app shows who it was once you open it.
 
 Turning reminders off deletes the token, and so does deleting your account.
-Signing out does not, so turn reminders off first if you are signing out of a
-phone somebody else will use.
 
 ## Finding people nearby
 
@@ -240,8 +238,12 @@ compute about anyone.
 **Profile → Your data → Export my data.**
 
 You get one document containing your profile, your score, every rating you were
-given, every rating you gave, every encounter, and the circles you are in. It
-arrives through your phone's share sheet, so you choose where it goes.
+given, every rating you gave, every encounter, the circles you are in, and your
+push tokens if you turned on reminders. Each token is listed as whether it is an
+iPhone or an Android phone, when it was first stored and when it was last
+renewed; the token itself is left out, because it is the address that delivers
+notifications to that phone. It arrives through your phone's share sheet, so you
+choose where it goes.
 
 ## Erasing it
 
