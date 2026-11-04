@@ -3,7 +3,7 @@
 What Myrrah holds about you, where it is kept, and how to take it back.
 
 > How to read this: the table answers most of it. The sections below say the
-> same things with the reasoning attached. Last updated 2026-11-01.
+> same things with the reasoning attached. Last updated 2026-11-04.
 
 ## At a glance
 
@@ -286,6 +286,17 @@ profile, before it exists, and is enforced by the database, not only by the
 app. An account that fails it is deleted at once. We do not
 knowingly hold data about anyone younger; if you believe we do, contact us and
 it will be deleted.
+
+## The website
+
+myrrah.net sets no cookies and runs no analytics.
+
+If two phones link on the site, the position of each finger passes between them
+through a short-lived room on Cloudflare. Nobody is named, and nothing is kept
+once the room closes.
+
+Cloudflare handles the site's traffic, as a host does, under its own privacy
+policy.
 
 ## Changes to this policy
 
