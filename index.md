@@ -10,7 +10,7 @@ What Myrrah holds about you, where it is kept, and how to take it back.
 | | |
 |---|---|
 | Who runs Myrrah | The two people who build it. There is no company behind it yet. |
-| What identifies you | An email address, or an Apple or Google sign-in, which nobody else sees |
+| What identifies you | An email address and a password, or an Apple or Google sign-in, which nobody else sees |
 | What others see | Your first name, your photo if you add one, your score |
 | Your location | Asked once, only if you choose, to name your city. Never kept |
 | Bluetooth | Only while the Nearby screen is open. Shows your first name and photo to Myrrah users close by |
@@ -41,12 +41,21 @@ ones you received.
 
 ## What is collected
 
-**An email address.** It is how you sign in: a six digit code is sent to it, or
-Apple or Google confirms it for you. It is never shown to another user, never
-used as a public identifier, and never appears in a web address. It is held by
-the authentication service and is not copied into the part of the database the
-app reads from. With Apple you can choose to share a private relay address
-instead of your own.
+**An email address.** It is how you sign in, with a password you choose, or
+with Apple or Google confirming it for you. A six digit code is sent to it once
+to check it is yours, and again if you forget your password. It is never shown
+to another user, never used as a public identifier, and never appears in a web
+address. It is held by the authentication service and is not copied into the
+part of the database the app reads from. With Apple you can choose to share a
+private relay address instead of your own.
+
+**A password, if you sign in with your email.** It is stored by the
+authentication service as a bcrypt hash: a scrambled value that can check a
+password but cannot be turned back into it. Nobody at Myrrah can read your
+password. The hash is not copied into the part of the database the app reads
+from, is not in your export, and is deleted with your account. If you sign in
+with Apple or Google you have none, unless you choose one through Forgot
+password.
 
 If you sign in with Google, Google also sends your name and a link to your
 Google profile picture, and the authentication service keeps what it sends with
@@ -175,12 +184,12 @@ somebody another person's data.
 Two other services take part in signing in, and each receives only what is
 listed here.
 
-- **Resend** sends the email with your sign-in code, through Amazon's mail
-  service in Ireland. It receives your email address and the code.
-- **Cloudflare Turnstile** runs the security check on the sign-in screen, which
-  stops scripts from requesting codes in bulk. It sees your phone's network
-  address and technical details of the browser view the check runs in. It does
-  not receive your email address.
+- **Resend** sends the email with your code, through Amazon's mail service in
+  Ireland. It receives your email address and the code.
+- **Cloudflare Turnstile** runs the security check on the sign-in screens, which
+  stops scripts from requesting codes or trying passwords in bulk. It sees your
+  phone's network address and technical details of the browser view the check
+  runs in. It does not receive your email address or your password.
 
 One more takes part only if you press "Use my location":
 
@@ -217,6 +226,7 @@ And one delivers reminders, only if you turn them on:
 | Data | Who sees it |
 |---|---|
 | Your email address | Nobody but you. Not other users, not us in normal use |
+| Your password | Nobody, you included. Only its hash is stored |
 | Your name, photo, score | Signed-in Myrrah users |
 | Your first name and photo, through Nearby | Signed-in Myrrah users within Bluetooth range, while your Nearby screen is open |
 | Whether your account is suspended | Signed-in users' apps, which show it only as an absence. Never the reason |
@@ -267,7 +277,8 @@ recover the account afterwards.
 Your email address is released at the same time, so it can be used to start a
 new account later.
 
-> **Note.** One exception, stated plainly: if you have been suspended and have an open
+> **Note.**
+> One exception, stated plainly: if you have been suspended and have an open
 > appeal, deleting your account ends the appeal, because the record it would
 > have been investigated against goes with it.
 
