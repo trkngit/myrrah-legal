@@ -277,8 +277,7 @@ recover the account afterwards.
 Your email address is released at the same time, so it can be used to start a
 new account later.
 
-> **Note.**
-> One exception, stated plainly: if you have been suspended and have an open
+> **Note.** One exception, stated plainly: if you have been suspended and have an open
 > appeal, deleting your account ends the appeal, because the record it would
 > have been investigated against goes with it.
 
