@@ -3,7 +3,7 @@
 What Myrrah holds about you, where it is kept, and how to take it back.
 
 > How to read this: the table answers most of it. The sections below say the
-> same things with the reasoning attached. Last updated 2026-11-04.
+> same things with the reasoning attached. Last updated 2026-11-06.
 
 ## At a glance
 
@@ -275,9 +275,10 @@ new account later.
 
 An email address, an Apple account or a Google account can hold one Myrrah
 account at a time. That is a weaker limit than it sounds: making several email
-addresses is easy. What protects a score today is that every rating needs a
-handshake in person, and that one person can rate another only once. If a
-stronger check is added, this section will say what it collects.
+addresses is easy. What protects a score today is that one person counts only
+once towards it: rating somebody again replaces the earlier rating and adds
+nothing, so moving a score takes many different people. If a stronger check is
+added, this section will say what it collects.
 
 ## Children
 
