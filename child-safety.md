@@ -3,7 +3,7 @@
 Myrrah's standards against child sexual abuse and exploitation, and what happens when they are broken.
 
 > How to read this: the table answers most of it. The sections below say the
-> same things with the reasoning attached. Last updated 2026-11-01.
+> same things with the reasoning attached. Last updated 2026-11-06.
 
 ## At a glance
 
@@ -36,7 +36,7 @@ Anyone who is under 18 using Myrrah, or anyone helping them to.
 There is little in Myrrah that such content could travel through. It has no messages and no
 comments. The only things a person adds are a first name and, optionally, one profile photo;
 the only free text is the reason written in a report, which only the two people who run Myrrah
-read. Two people can rate each other only after meeting in person and confirming a handshake.
+read. A rating is a number of stars from one to five, with no words attached.
 
 ## Reporting
 
