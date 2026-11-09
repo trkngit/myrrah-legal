@@ -41,8 +41,10 @@ read. A rating is a number of stars from one to five, with no words attached.
 ## Reporting
 
 **In the app.** Report the person from the rating screen after a handshake, or from the list of
-people you have met in Profile, and say what is wrong. The person you report is never told who
-reported them, and never sees what you wrote.
+people you have met in Profile, and say what is wrong. A star from someone nearby, given without a
+handshake, is reported from Standing → Stars from people nearby; the report reaches the two people
+who run Myrrah with the name of whoever gave it, which you are never shown. The person you report
+is never told who reported them, and never sees what you wrote.
 
 **Without the app.** Email tarkan.suravwrk@gmail.com and say what you saw and where.
 
