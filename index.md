@@ -3,7 +3,7 @@
 What Myrrah holds about you, where it is kept, and how to take it back.
 
 > How to read this: the table answers most of it. The sections below say the
-> same things with the reasoning attached. Last updated 2026-11-09.
+> same things with the reasoning attached. Last updated 2026-11-10.
 
 ## At a glance
 
@@ -329,6 +329,7 @@ And two check a phone, once, the first time you give a star to someone nearby:
 | Who gave you a star from nearby | Not you, and not other users. The two of us, if it is reported |
 | Whether your account holds a phone | You, in your export. Not other users |
 | Who you met | You and the person you met |
+| Who you blocked | You, by first name, under Profile → Blocked people. Never the person you blocked |
 | A report you filed | The two of us. Never the person reported |
 
 You are never shown a ranked list of people, and no part of Myrrah will tell
